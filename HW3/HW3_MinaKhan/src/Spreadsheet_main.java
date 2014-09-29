@@ -1,22 +1,36 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class Spreadsheet_main {
 
+	Spreadsheet_View view;
+	Spreadsheet_Model model;
+	Spreadsheet_Controller controller;
+	
 	public static void main(String[] args){
 		int numRows;
-		int numColumns=0;
+		int numColumns;
 		if (args.length==0){
 			numRows=10;
 			numColumns=2;
 			}
 		else{
 			numRows=Integer.parseInt(args[0]);
-			numRows=Integer.parseInt(args[1]);
+			numColumns=Integer.parseInt(args[1]);
 			}
 		
-	
-	Spreadsheet_Model model = new Spreadsheet_Model();
-	Spreadsheet_View view = new Spreadsheet_View(model);
-	Spreadsheet_Controller controller = new Spreadsheet_Controller(model);
-	Spreadsheet_GUI gui = new Spreadsheet_GUI(view, controller);
+	ActionListener actionListener=getTotalListener();
+	Spreadsheet_View view = new Spreadsheet_View(numRows,numColumns);
+	Spreadsheet_Model model = new Spreadsheet_Model(numRows, numColumns, view, actionListener);
+	Spreadsheet_Controller controller = new Spreadsheet_Controller(view, model);
 	}
+	
+	public static ActionListener getTotalListener () {
+        return new ActionListener() {
+            @Override public void actionPerformed (ActionEvent e) {
+            	System.out.println("jj");
+            }
+        };
+    }
 }
