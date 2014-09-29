@@ -1,0 +1,19 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+
+
+public class CellView extends JTextField implements ActionListener{
+
+	public CellView(){
+		this.setSize(30, 20);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

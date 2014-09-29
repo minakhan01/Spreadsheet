@@ -1,0 +1,19 @@
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class RowView extends JPanel {
+	protected CellView cellView;
+	int numColumns;
+	Row row;
+	
+	public RowView(int rowNum,int numColumns){
+		super();
+		row=new Row(numColumns);
+		this.numColumns=numColumns;
+		cellView=new CellView();
+		this.add(new JLabel(rowNum+""));
+		this.add(cellView);
+	}
+	
+}

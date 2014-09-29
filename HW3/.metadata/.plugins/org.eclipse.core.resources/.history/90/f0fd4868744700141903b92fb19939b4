@@ -1,0 +1,10 @@
+import javax.swing.JTextField;
+
+
+public class CellView extends JTextField{
+	
+	public CellView(){
+		this.addActionListener(this);
+	}
+
+}

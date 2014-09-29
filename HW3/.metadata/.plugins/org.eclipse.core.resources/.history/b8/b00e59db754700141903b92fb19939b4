@@ -1,0 +1,9 @@
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+
+
+public class CellView extends JTextField implements ActionListener{
+	
+
+}

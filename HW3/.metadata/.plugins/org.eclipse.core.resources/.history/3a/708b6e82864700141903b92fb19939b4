@@ -1,0 +1,32 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+public class CellView extends JPanel implements ActionListener{
+	JTextField textField;
+	Cell cell;
+	public CellView(){
+		textField=new JTextField();
+		textField.addActionListener(this);
+		this.setLayout(new BorderLayout);
+		this.setSize(300, 20);
+		this.add(textField);
+		cell=new Cell();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String text = textField.getText();
+		int textValue=Integer.parseInt(text);
+		cell.setValue(textValue);
+	}
+	
+	public Cell getCell(){
+		return cell;
+	}
+	
+
+}

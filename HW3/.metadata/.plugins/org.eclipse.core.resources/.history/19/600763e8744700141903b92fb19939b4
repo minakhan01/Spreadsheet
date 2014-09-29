@@ -1,0 +1,21 @@
+import java.awt.Container;
+
+import javax.swing.JFrame;
+
+public class Spreadsheet {
+	
+	public static void main(String[] args){
+		int numRows;
+		if (args.length==0)
+			numRows=10;
+		else
+			numRows=Integer.parseInt(args[0]);
+		
+		JFrame frame=new JFrame("Spreadsheet");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container containerPane=frame.getContentPane();
+		frame.pack();
+		frame.setSize(600, 100);
+		frame.setVisible(true);
+	}
+}

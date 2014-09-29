@@ -1,0 +1,10 @@
+
+public class Row {
+	
+	public Row(int numColumns){		
+		Cell[] row=new Cell[numColumns];
+	}
+	
+	
+
+}

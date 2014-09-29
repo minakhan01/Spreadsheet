@@ -1,0 +1,13 @@
+import java.awt.Container;
+
+import javax.swing.JFrame;
+
+public class Spreadsheet {
+	
+	public static void main(String[] args){
+		JFrame frame=new JFrame("Spreadsheet");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container containerPane=frame.getContentPane();
+		frame.setSize(100, 100);
+	}
+}

@@ -1,0 +1,22 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class RowView extends JPanel {
+	protected CellView cellView;
+	int numColumns;
+	Row row;
+	
+	public RowView(int rowNum,int numColumns){
+		super();
+		this.numColumns=numColumns;
+		cellView=new CellView();
+		this.add(new JLabel(rowNum+""));
+		this.add(cellView);
+		row=new Row(numColumns);
+	}
+	
+}

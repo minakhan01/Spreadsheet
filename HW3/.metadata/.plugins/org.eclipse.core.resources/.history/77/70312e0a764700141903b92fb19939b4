@@ -1,0 +1,31 @@
+import java.awt.Container;
+
+import javax.swing.JFrame;
+
+public class Spreadsheet {
+	
+	public static void main(String[] args){
+		int numRows;
+		int numColumns;
+		if (args.length==0){
+			numRows=10;
+			numColumns=2}
+		
+		else
+			numRows=Integer.parseInt(args[0]);
+		
+		JFrame frame=new JFrame("Spreadsheet");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container containerPane=frame.getContentPane();
+		RowView[] row_view_array=new RowView[numRows];
+		
+		for (int i=0;i<row_view_array.length;i++){
+			row_view_array[i]=RowView(int numColumns)
+		containerPane.add(row_view_array[0]);
+		}
+		
+		frame.pack();
+		frame.setSize(600, 100);
+		frame.setVisible(true);
+	}
+}

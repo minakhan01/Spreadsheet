@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Cell.java&apos; to &apos;CellView.java&apos;&#x0A;- Original project: &apos;Spreadsheet_MVC&apos;&#x0A;- Original element: &apos;Cell.java&apos;&#x0A;- Renamed element: &apos;CellView.java&apos;" description="Rename compilation unit &apos;Cell.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Cell.java" name="CellView.java" references="false" stamp="1411950672930" version="1.0"/>
+</session>

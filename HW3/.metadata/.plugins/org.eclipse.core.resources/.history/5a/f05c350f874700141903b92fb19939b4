@@ -1,0 +1,30 @@
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class RowView extends JPanel {
+	protected CellView[] cellView_array;
+	int numColumns;
+	Row row;
+	
+	public RowView(int rowNum,int numColumns){
+		super();
+		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		Cell[] cell_array=new Cell[numColumns];
+		this.numColumns=numColumns;
+		this.add(new JLabel(rowNum+""));
+		cellView_array=new CellView[numColumns];
+		
+		for (int i=0;i<numColumns;i++){
+			cellView_array[i]=new CellView();
+			this.add(cellView_array[i]);
+			cell_array[i]=cellView_array[i].getCell();
+		}
+		
+		row=new Row(cell_array);
+		this.add(new JLabel(row.getTotal()+""));
+
+	}
+	
+}

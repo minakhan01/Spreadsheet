@@ -1,0 +1,15 @@
+
+public class Row {
+	
+	Cell[] row;
+	int numColumns;
+	public Row(int numColumns){
+		this.numColumns=numColumns;
+		row=new Cell[numColumns];
+	}
+	
+	public int getTotal(){
+		for (int i=0; i<)
+	}
+
+}

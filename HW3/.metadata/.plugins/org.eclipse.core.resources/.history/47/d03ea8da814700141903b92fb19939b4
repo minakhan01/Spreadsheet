@@ -1,0 +1,34 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class RowView extends JPanel implements ActionListener {
+	protected CellView[] cellView_array;
+	int numColumns;
+	Row row;
+	
+	public RowView(int rowNum,int numColumns){
+		super();
+		this.numColumns=numColumns;
+		this.add(new JLabel(rowNum+""));
+		
+		for (int i=0;i<numColumns;i++){
+			cellView_array[i]=new CellView();
+			this.add(cellView);
+			cellView.addActionListener(this);
+		}
+		row=new Row(numColumns);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		String text = cellView.getText();
+//	    textArea.append(text + newline);
+//	    textField.selectAll();
+		
+	}
+	
+}

@@ -1,0 +1,11 @@
+
+public class Row {
+	
+	public Row(int numColumns){
+		Cell[] cellArray=new Cell[numColumns];
+		for (int i=0;i<numColumns;i++){
+			
+		}
+	}
+
+}

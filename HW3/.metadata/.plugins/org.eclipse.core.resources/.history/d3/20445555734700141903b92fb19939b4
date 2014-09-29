@@ -1,0 +1,13 @@
+import javax.swing.JPanel;
+
+
+public class RowView extends JPanel {
+	
+	int numColumns;
+	RowView row_view;
+	public RowView(int numColumns){
+		this.numColumns=numColumns;
+		row_view=;
+	}
+	
+}
