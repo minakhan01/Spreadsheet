@@ -1,0 +1,16 @@
+
+public class Spreadsheet_main {
+
+	public static void main(String[] args){
+		int numRows;
+		int numColumns=0;
+		if (args.length==0){
+			numRows=10;
+			numColumns=2;
+			}
+		else{
+			numRows=Integer.parseInt(args[0]);
+			numRows=Integer.parseInt(args[1]);
+			}
+		}
+}

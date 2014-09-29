@@ -1,16 +1,19 @@
 
 public class Row {
 	
-	Cell[] row;
-	int numColumns;
-	RowView row_view;
+	private Cell[] row;
+	private int numColumns;
+	private RowView row_view;
+	private int sum;
+	
 	public Row(Cell[] row){
 		this.numColumns=row.length;
 		this.row=row;
+		sum=0;
 	}
 	
 	public int getTotal(){
-		int sum=0;
+		sum=0;
 		for (int i=0; i<numColumns;i++){
 			sum += row[i].value;
 		}

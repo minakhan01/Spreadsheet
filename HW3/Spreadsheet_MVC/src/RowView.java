@@ -8,42 +8,43 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 
-public class RowView extends JPanel implements ActionListener{
+public class RowView extends JPanel{
 	protected CellView[] cellView_array;
 	int numColumns;
 	Row row;
 	
+	private void setUpPanels(int rowNum,int numColumns){
+		
+	}
+	
 	public RowView(int rowNum,int numColumns){
+		
 		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		Cell[] cell_array=new Cell[numColumns];
 		this.numColumns=numColumns;
-		JPanel box1=new JPanel();
-		JPanel box2=new JPanel();
+		
+		JPanel rowIndexPanel=new JPanel();
 		JLabel rowLabel=new JLabel(rowNum+"");
 		rowLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		box1.setLayout(new BorderLayout());
-		box2.setLayout(new BorderLayout());
-		box1.add(rowLabel);
+		rowIndexPanel.setLayout(new BorderLayout());
+		rowIndexPanel.add(rowLabel);
+		this.add(rowIndexPanel);
+
+		JPanel rowTotalPanel=new JPanel();
+		rowTotalPanel.setLayout(new BorderLayout());
 		JLabel totalLabel=new JLabel(" 0 ");
+		totalLabel.setText(""+row.getTotal());
 		totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		this.add(box1);
 		cellView_array=new CellView[numColumns];
 		for (int i=0;i<numColumns;i++){
 			cellView_array[i]=new CellView();
 			this.add(cellView_array[i]);
 			cell_array[i]=cellView_array[i].getCell();
 		}
-		box2.add(totalLabel);
-		this.add(box2);
+		rowTotalPanel.add(totalLabel);
+		this.add(rowTotalPanel);
 		row=new Row(cell_array);
 
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("Action listener in row");
-		
 	}
 	
 }

@@ -1,0 +1,18 @@
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+public class Spreadsheet_GUI extends JFrame {
+	static String title="Spreadsheet";
+	JLabel label1;
+	JLabel label2;
+	public Spreadsheet_GUI(Spreadsheet_View view, Spreadsheet_Controller model){
+		super( title );
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		label1 = new JLabel("Hello Swing!");  // construct a JLabel
+	    add( label1 ); 
+	    label2 = new JLabel("Hello Swing 2!"); 
+	}
+}

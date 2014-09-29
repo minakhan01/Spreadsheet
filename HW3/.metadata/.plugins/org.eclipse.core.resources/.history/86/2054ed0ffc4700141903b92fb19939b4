@@ -1,0 +1,96 @@
+import java.awt.BorderLayout;
+import java.awt.Container;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class Spreadsheet_GUI extends JFrame {
+	static String title = "Spreadsheet";
+	Row_GUI[] row_gui_array;
+	int numRows;
+	int numColumns;
+	Container containerPane;
+	JPanel mainPanel;
+
+	public Spreadsheet_GUI(Spreadsheet_View view,
+			Spreadsheet_Controller controller) {
+		super(title);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		containerPane = getContentPane();
+		mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		setSize(600, 1000);
+		
+		this.add(new JLabel("test"));
+//		addRow_GUI();
+		numRows = controller.getNumRow();
+		numColumns = controller.getNumColumns();
+		containerPane.add(mainPanel);
+		
+		setVisible(true);
+	}
+
+	private void addRow_GUI() {
+		row_gui_array = new Row_GUI[numRows];
+		for (int i = 0; i < row_gui_array.length; i++) {
+			row_gui_array[i] = new Row_GUI(i);
+			mainPanel.add(row_gui_array[i]);
+		}
+
+	}
+
+	// nested class : level 1
+	private class Row_GUI extends JPanel {
+		Cell_GUI[] cell_GUI_array;
+		int rowNum;
+
+		private Row_GUI(int rowNum) {
+			this.rowNum = rowNum;
+			this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+
+			JPanel rowIndexPanel = new JPanel();
+			JLabel rowLabel = new JLabel(rowNum + "");
+			rowLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			rowIndexPanel.setLayout(new BorderLayout());
+			rowIndexPanel.add(rowLabel);
+			this.add(rowIndexPanel);
+
+			addCell_GUI();
+
+			JPanel rowTotalPanel = new JPanel();
+			rowTotalPanel.setLayout(new BorderLayout());
+			JLabel totalLabel = new JLabel(" 0 ");
+			totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			rowTotalPanel.add(totalLabel);
+			this.add(rowTotalPanel);
+		}
+
+		private void addCell_GUI() {
+			cell_GUI_array = new Cell_GUI[numColumns];
+			for (int i = 0; i < numColumns; i++) {
+				cell_GUI_array[i] = new Cell_GUI();
+				this.add(cell_GUI_array[i]);
+			}
+		}
+
+		// nested class : level 2
+		private class Cell_GUI extends JPanel {
+
+			JTextField textField;
+
+			public Cell_GUI() {
+				textField = new JTextField();
+				this.setLayout(new BorderLayout());
+				this.setSize(30, 20);
+				this.add(new JLabel("test"));
+				this.add(textField, BorderLayout.CENTER);
+			}
+
+		}
+
+	}
+}

@@ -1,0 +1,45 @@
+import java.awt.Container;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class Spreadsheet_GUI extends JFrame {
+	static String title="Spreadsheet";
+	Row_GUI[] row_gui_array;
+	int numRows;
+	int numColumns;
+	
+	public Spreadsheet_GUI(Spreadsheet_View view, Spreadsheet_Controller controller){
+		super( title );
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container containerPane=getContentPane();
+		JPanel mainPanel=new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		setSize(600, 1000);
+	    setVisible( true );
+	    addRow_GUI();
+	    model.getNumRow();
+	    model.getNumColumns();
+	}
+	
+	private void addRow_GUI() {
+		
+		
+	}
+
+	//nested class : level 1
+	private class Row_GUI{
+		
+		
+		//nested class : level 2
+		private class Cell_GUI{
+			
+			
+			
+		}
+		
+	}
+}

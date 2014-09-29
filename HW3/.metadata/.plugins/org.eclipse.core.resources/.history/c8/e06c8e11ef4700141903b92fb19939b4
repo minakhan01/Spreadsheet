@@ -1,0 +1,17 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class Spreadsheet_Controller {
+	Spreadsheet_Model model;
+    public Spreadsheet_Controller(Spreadsheet_Model model) {
+		// TODO Auto-generated constructor stub
+	}
+	public ActionListener getTotalListener () {
+        return new ActionListener() {
+            @Override public void actionPerformed (ActionEvent e) {
+                model.updateTotal();
+            }
+        };
+    }
+}
