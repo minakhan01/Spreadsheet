@@ -1,7 +1,3 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-
 public class Spreadsheet_main {
 
 	Spreadsheet_View view;
@@ -20,17 +16,10 @@ public class Spreadsheet_main {
 			numColumns=Integer.parseInt(args[1]);
 			}
 		
-	ActionListener actionListener=getTotalListener();
+	Spreadsheet_ActionListener actionListener=new Spreadsheet_ActionListener();
 	Spreadsheet_View view = new Spreadsheet_View(numRows,numColumns);
 	Spreadsheet_Model model = new Spreadsheet_Model(numRows, numColumns, view, actionListener);
 	Spreadsheet_Controller controller = new Spreadsheet_Controller(view, model);
+	actionListener.setController( controller);
 	}
-	
-	public static ActionListener getTotalListener () {
-        return new ActionListener() {
-            @Override public void actionPerformed (ActionEvent e) {
-            	System.out.println("jj");
-            }
-        };
-    }
 }

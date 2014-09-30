@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 
@@ -6,8 +5,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class Spreadsheet_View extends JFrame {
 	static String title = "Spreadsheet";

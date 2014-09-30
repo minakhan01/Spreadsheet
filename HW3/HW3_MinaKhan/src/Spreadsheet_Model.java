@@ -1,20 +1,23 @@
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractAction;
+
 public class Spreadsheet_Model {
 	private Row[] rows;
 	int numRows;
 	int numColumns;
 	Spreadsheet_View view;
-	ActionListener actionListener;
+	ActionListener actionListener=new Spreadsheet_ActionListener();
 	
-	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, ActionListener actionListener) {
+	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, ActionListener actionListenerIn) {
 		this.view=view;
 		rows=new Row[numRows];
 		Row_GUI[] row_view_array= new Row_GUI[numRows];
 		for(int i=0;i<numRows;i++){
-			rows[i]=new Row(i, numColumns, actionListener);
+			rows[i]=new Row(i, numColumns);
 			row_view_array[i]=rows[i].get_row_view();
 		}
+		this.actionListener=actionListenerIn;
 		view.addRow_GUI(row_view_array);
 	}
 	
@@ -33,7 +36,7 @@ public class Spreadsheet_Model {
 		Row_GUI row_view;
 		private int sum;
 
-		public Row(int rowNum, int numColumns, ActionListener actionListener) {
+		public Row(int rowNum, int numColumns) {
 			this.numColumns = numColumns;
 			row_view=new Row_GUI(rowNum, numColumns);
 			cell_array=new Cell[numColumns];
@@ -42,6 +45,7 @@ public class Spreadsheet_Model {
 				cell_array[i]=new Cell();
 				cell_view[i]=cell_array[i].getCellGUI();
 			}
+			this.
 			row_view.addCell_GUI(cell_view);
 			
 			sum = 0;
