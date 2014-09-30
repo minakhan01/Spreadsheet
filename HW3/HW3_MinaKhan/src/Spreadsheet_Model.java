@@ -1,7 +1,4 @@
-import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-
-import javax.swing.AbstractAction;
 
 public class Spreadsheet_Model {
 	private Row[] rows;
@@ -9,11 +6,12 @@ public class Spreadsheet_Model {
 	int numColumns;
 	Spreadsheet_View view;
 	KeyListener actionListener=new Spreadsheet_ActionListener();
+	Row_GUI[] row_view_array;
 	
 	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, KeyListener actionListenerIn) {
 		this.view=view;
 		rows=new Row[numRows];
-		Row_GUI[] row_view_array= new Row_GUI[numRows];
+		row_view_array= new Row_GUI[numRows];
 		for(int i=0;i<numRows;i++){
 			rows[i]=new Row(i, numColumns);
 			row_view_array[i]=rows[i].get_row_view();
@@ -29,6 +27,10 @@ public class Spreadsheet_Model {
 	
 	public int getColumns(){
 		return numColumns;
+	}
+	
+	public Row_GUI[] get_row_view_array(){
+		return row_view_array;
 	}
 	
 	public class Row {
@@ -49,6 +51,8 @@ public class Spreadsheet_Model {
 			}
 			this.
 			row_view.addCell_GUI(cell_view);
+			row_view.addKeyListener(actionListener);
+			row_view.setFocusable(true);
 			
 			sum = 0;
 		}
@@ -72,9 +76,10 @@ public class Spreadsheet_Model {
 			public Cell() {
 				value = 0;
 				cell_view=new Cell_GUI();
-				System.out.print(actionListener);
-				cell_view.addKeyListener(actionListener);
+//				System.out.println("in cell: "+actionListener);
+//				cell_view.addKeyListener(actionListener);
 				cell_view.setFocusable(true);
+//				cell_view.requestFocusInWindow();
 			}
 
 			public void setValue(int value) {
