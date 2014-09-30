@@ -1,4 +1,5 @@
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 import javax.swing.AbstractAction;
 
@@ -7,9 +8,9 @@ public class Spreadsheet_Model {
 	int numRows;
 	int numColumns;
 	Spreadsheet_View view;
-	ActionListener actionListener=new Spreadsheet_ActionListener();
+	KeyListener actionListener=new Spreadsheet_ActionListener();
 	
-	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, ActionListener actionListenerIn) {
+	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, KeyListener actionListenerIn) {
 		this.view=view;
 		rows=new Row[numRows];
 		Row_GUI[] row_view_array= new Row_GUI[numRows];
@@ -18,6 +19,7 @@ public class Spreadsheet_Model {
 			row_view_array[i]=rows[i].get_row_view();
 		}
 		this.actionListener=actionListenerIn;
+		System.out.print("actionListener: "+actionListener);
 		view.addRow_GUI(row_view_array);
 	}
 	
@@ -70,7 +72,9 @@ public class Spreadsheet_Model {
 			public Cell() {
 				value = 0;
 				cell_view=new Cell_GUI();
-				cell_view.addListener(actionListener);
+				System.out.print(actionListener);
+				cell_view.addKeyListener(actionListener);
+				cell_view.setFocusable(true);
 			}
 
 			public void setValue(int value) {
