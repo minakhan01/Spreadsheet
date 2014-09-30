@@ -22,12 +22,12 @@ public class Spreadsheet_main {
 	Spreadsheet_Controller controller = new Spreadsheet_Controller(view, model);
 	actionListener.setController( controller);
 	System.out.print("main"+view.getMainPanel().requestFocusInWindow());
-//	Row_GUI[] row_view_array=model.get_row_view_array();
-//	for (int i=0;i<row_view_array.length;i++){
-//		row_view_array[i].setFocusable(true);
-//	}
-//	for (int i=0;i<row_view_array.length;i++){
-//		System.out.print(row_view_array[i].requestFocusInWindow());
-//	}
+	Row_GUI[] row_view_array=model.get_row_view_array();
+	for (int i=0;i<row_view_array.length;i++){
+		row_view_array[i].setFocusable(true);
+	}
+	for (int i=0;i<row_view_array.length;i++){
+		System.out.print(row_view_array[i].requestFocusInWindow());
+	}
 	}
 }

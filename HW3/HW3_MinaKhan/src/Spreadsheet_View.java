@@ -31,8 +31,10 @@ public class Spreadsheet_View extends JFrame {
 		
 		mainPanel.add(new JLabel("test"));
 		containerPane.add(mainPanel);
-		
+		setFocusable(true);
+		containerPane.setFocusable(true);
 		setVisible(true);
+		setFocusable(true);
 	}
 	
 	public void addActionListener(ActionListener actionListener){
