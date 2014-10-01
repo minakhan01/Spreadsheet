@@ -1,8 +1,0 @@
-import javax.swing.JFrame;
-
-
-public class Speadsheet_GUI extends JFrame {
-	public Speadsheet_GUI(Spreadsheet_View view, Spreadsheet_Controller model){
-		
-	}
-}

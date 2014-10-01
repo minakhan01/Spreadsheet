@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 		int rowNum;
 		int numColumns;
 		JPanel rowTotalPanel;
+		JLabel rowLabel;
 
 		public Row_GUI(int rowNum, int numColumns) {
 			this.rowNum = rowNum;
@@ -39,6 +40,10 @@ import javax.swing.SwingConstants;
 			totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			rowTotalPanel.add(totalLabel);
 			this.add(rowTotalPanel);
+		}
+		
+		public void setTotalPanel(int value){
+			rowLabel.setText(""+value);
 		}
 
 	}
