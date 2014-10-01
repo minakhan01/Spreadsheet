@@ -2,21 +2,17 @@ import java.awt.event.ActionListener;
 
 public class Spreadsheet_Model {
 	private Row[] rows;
-	int numRows;
-	int numColumns;
-	Spreadsheet_View view;
-//	ActionListener actionListener=new Spreadsheet_ActionListener();
-	Row_GUI[] row_view_array;
+	private int numRows;
+	private int numColumns;
+	private Row_GUI[] row_view_array;
 	
 	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, ActionListener actionListenerIn) {
-		this.view=view;
 		rows=new Row[numRows];
 		row_view_array= new Row_GUI[numRows];
 		for(int i=0;i<numRows;i++){
 			rows[i]=new Row(i, numColumns, actionListenerIn);
 			row_view_array[i]=rows[i].get_row_view();
 		}
-//		this.actionListener=actionListenerIn;
 		System.out.print("actionListener: "+actionListenerIn);
 		view.addRow_GUI(row_view_array);
 	}
@@ -31,6 +27,18 @@ public class Spreadsheet_Model {
 	
 	public Row_GUI[] get_row_view_array(){
 		return row_view_array;
+	}
+	
+	public void updateValue(int columnNum, int rowNum, int value) {
+		System.out.print("update value in model");
+		rows[rowNum].updateValue(columnNum, value);
+
+	}
+
+	public void updateRowTotal(int rowNum) {
+		System.out.print("update row total in model");
+		rows[rowNum].updateRowTotal();
+		
 	}
 	
 	public class Row {
@@ -107,16 +115,6 @@ public class Spreadsheet_Model {
 			row_view.setTotalPanel(sum);
 		}
 
-	}
-
-	public void updateValue(int columnNum, int rowNum, int value) {
-		rows[rowNum].updateValue(columnNum, value);
-
-	}
-
-	public void updateRowTotal(int rowNum) {
-		rows[rowNum].updateRowTotal();
-		
 	}
 
 }

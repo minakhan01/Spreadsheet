@@ -8,14 +8,11 @@ import javax.swing.SwingConstants;
 
 // nested class : level 1
 	public class Row_GUI extends JPanel {
-		Cell_GUI[] cell_GUI_array;
-		int rowNum;
-		int numColumns;
-		JPanel rowTotalPanel;
-		JLabel rowLabel;
+		private Cell_GUI[] cell_GUI_array;
+		private int numColumns;
+		private JLabel rowTotalLabel;
 
 		public Row_GUI(int rowNum, int numColumns) {
-			this.rowNum = rowNum;
 			this.numColumns=numColumns;
 			this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
@@ -36,14 +33,15 @@ import javax.swing.SwingConstants;
 			
 			JPanel rowTotalPanel = new JPanel();
 			rowTotalPanel.setLayout(new BorderLayout());
-			JLabel totalLabel = new JLabel(" 0 ");
-			totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			rowTotalPanel.add(totalLabel);
+			rowTotalLabel = new JLabel(" 0 ");
+			rowTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			rowTotalPanel.add(rowTotalLabel);
 			this.add(rowTotalPanel);
 		}
 		
 		public void setTotalPanel(int value){
-			rowLabel.setText(""+value);
+			System.out.println("setTotalPanel in row");
+			rowTotalLabel.setText(""+value);
 		}
 
 	}

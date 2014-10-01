@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 // nested class : level 2
 public class Cell_GUI extends JPanel {
 
-	SS_textField textField;
-	int fieldValue = 0;
+	private SS_textField textField;
+	private int fieldValue = 0;
 
 	public Cell_GUI(int row, int column) {
 		textField = new SS_textField(row, column);

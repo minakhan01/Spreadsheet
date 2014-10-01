@@ -7,21 +7,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Spreadsheet_View extends JFrame {
-	static String title = "Spreadsheet";
-	Row_GUI[] row_gui_array;
-	int numRows;
-	int numColumns;
-	Container containerPane;
-	JPanel mainPanel;
-	Spreadsheet_Controller controller;
-	ActionListener action_listener;
+	private static String title = "Spreadsheet";
+	private Row_GUI[] row_gui_array;
+	private int numRows;
+	private Container containerPane;
+	private JPanel mainPanel;
+	private ActionListener action_listener;
 	
 	public Spreadsheet_View(int numRows, int numColumns) {
 		
 		super(title);
 		
 		this.numRows = numRows;
-		this.numColumns = numColumns;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		containerPane = getContentPane();
@@ -53,8 +50,6 @@ public class Spreadsheet_View extends JFrame {
 		mainPanel.setFocusable(true);
 		setVisible(true);
 		System.out.println("main panel: "+mainPanel.requestFocusInWindow());
-
-
 
 	}
 

@@ -5,12 +5,13 @@ public class Spreadsheet_main {
 
 	Spreadsheet_View view;
 	Spreadsheet_Model model;
-	static Spreadsheet_Controller controller;
+	Spreadsheet_Controller controller;
+	Spreadsheet_ActionListener actionListener;
 	public Spreadsheet_main(int numRows, int numColumns){
-		Spreadsheet_ActionListener actionListener=new Spreadsheet_ActionListener();
-		Spreadsheet_View view = new Spreadsheet_View(numRows,numColumns);
-		Spreadsheet_Model model = new Spreadsheet_Model(numRows, numColumns, view, actionListener);
-		Spreadsheet_Controller controller = new Spreadsheet_Controller(view, model);
+		actionListener=new Spreadsheet_ActionListener();
+		view = new Spreadsheet_View(numRows,numColumns);
+		model = new Spreadsheet_Model(numRows, numColumns, view, actionListener);
+		controller = new Spreadsheet_Controller(view, model);
 		System.out.println("view: "+view+"\n model: "+model+"\n controller: "+controller);
 	}
 	public class Spreadsheet_ActionListener implements ActionListener {
@@ -23,7 +24,7 @@ public class Spreadsheet_main {
 			int value=Integer.parseInt(input);
 			int row=field.getRow();
 			int column=field.getColumn();
-			System.out.print("in action performed "+controller);
+			System.out.println("in action performed "+controller);
 			controller.updateValue(column, row, value);
 			
 		}

@@ -1,8 +1,8 @@
 import javax.swing.JTextField;
 
 	public class SS_textField extends JTextField{
-		int row;
-		int column;
+		private int row;
+		private int column;
 		
 		public SS_textField(int row, int column){
 			super();
