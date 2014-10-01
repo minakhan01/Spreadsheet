@@ -1,4 +1,5 @@
 import java.awt.Container;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
@@ -12,7 +13,6 @@ public class Spreadsheet_View extends JFrame {
 	private int numRows;
 	private Container containerPane;
 	private JPanel mainPanel;
-	private ActionListener action_listener;
 	
 	public Spreadsheet_View(int numRows, int numColumns) {
 		
@@ -25,23 +25,26 @@ public class Spreadsheet_View extends JFrame {
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		setSize(600, 1000);
-		
-		mainPanel.add(new JLabel("test"));
+		JPanel firstPanel=new JPanel();
+		GridLayout layout=new GridLayout(1, numColumns, 20, 0);
+		firstPanel.setLayout(layout);
+		firstPanel.add(new JLabel("Index"));
+		for (int i=0; i<numColumns;i++){
+			firstPanel.add(new JLabel("Columns # "+i));
+		}
+		firstPanel.add(new JLabel("Total"));
+		mainPanel.add(firstPanel);
 		containerPane.add(mainPanel);
 		setFocusable(true);
 		containerPane.setFocusable(true);
 		setVisible(true);
 		setFocusable(true);
 	}
-	
-	public void addActionListener(ActionListener actionListener){
-		action_listener=actionListener;
-	}
+
 	public JPanel getMainPanel(){
 		return mainPanel;
 	}
 	public void addRow_GUI(Row_GUI[] rows) {
-		System.out.println("in add row GUI");
 		row_gui_array = new Row_GUI[numRows];
 		for (int i = 0; i < row_gui_array.length; i++) {
 			mainPanel.add(rows[i]);
@@ -49,7 +52,6 @@ public class Spreadsheet_View extends JFrame {
 		
 		mainPanel.setFocusable(true);
 		setVisible(true);
-		System.out.println("main panel: "+mainPanel.requestFocusInWindow());
 
 	}
 

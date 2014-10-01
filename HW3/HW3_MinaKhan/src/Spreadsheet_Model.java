@@ -1,19 +1,16 @@
-import java.awt.event.ActionListener;
-
 public class Spreadsheet_Model {
 	private Row[] rows;
 	private int numRows;
 	private int numColumns;
 	private Row_GUI[] row_view_array;
 	
-	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, ActionListener actionListenerIn) {
+	public Spreadsheet_Model(int numRows, int numColumns, Spreadsheet_View view, Spreadsheet_ActionListener actionListenerIn) {
 		rows=new Row[numRows];
 		row_view_array= new Row_GUI[numRows];
 		for(int i=0;i<numRows;i++){
 			rows[i]=new Row(i, numColumns, actionListenerIn);
 			row_view_array[i]=rows[i].get_row_view();
 		}
-		System.out.print("actionListener: "+actionListenerIn);
 		view.addRow_GUI(row_view_array);
 	}
 	
@@ -30,13 +27,11 @@ public class Spreadsheet_Model {
 	}
 	
 	public void updateValue(int columnNum, int rowNum, int value) {
-		System.out.print("update value in model");
 		rows[rowNum].updateValue(columnNum, value);
 
 	}
 
 	public void updateRowTotal(int rowNum) {
-		System.out.print("update row total in model");
 		rows[rowNum].updateRowTotal();
 		
 	}
@@ -48,7 +43,7 @@ public class Spreadsheet_Model {
 		Row_GUI row_view;
 		private int sum;
 
-		public Row(int rowNum, int numColumns, ActionListener actionListenerIn) {
+		public Row(int rowNum, int numColumns, Spreadsheet_ActionListener actionListenerIn) {
 			this.numColumns = numColumns;
 			row_view=new Row_GUI(rowNum, numColumns);
 			cell_array=new Cell[numColumns];
@@ -85,10 +80,9 @@ public class Spreadsheet_Model {
 			int column;
 			Cell_GUI cell_view;
 
-			public Cell(int row, int column, ActionListener actionListener) {
+			public Cell(int row, int column, Spreadsheet_ActionListener actionListener) {
 				value = 0;
 				cell_view=new Cell_GUI(row, column);
-				System.out.println("in cell: "+actionListener);
 				cell_view.addListener(actionListener);
 			}
 

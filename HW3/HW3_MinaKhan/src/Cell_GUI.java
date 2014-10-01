@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +10,7 @@ public class Cell_GUI extends JPanel {
 	private int fieldValue = 0;
 
 	public Cell_GUI(int row, int column) {
+		super();
 		textField = new SS_textField(row, column);
 		this.setLayout(new BorderLayout());
 		this.setSize(30, 20);
@@ -19,8 +19,9 @@ public class Cell_GUI extends JPanel {
 		
 	}
 
-	public void addListener(ActionListener action) {
+	public void addListener(Spreadsheet_ActionListener action) {
 		textField.addActionListener(action);
+		textField.addFocusListener(action);
 	}
 
 	public int getIntValue() {

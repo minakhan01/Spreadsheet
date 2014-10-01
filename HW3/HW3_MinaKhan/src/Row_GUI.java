@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -13,9 +13,10 @@ import javax.swing.SwingConstants;
 		private JLabel rowTotalLabel;
 
 		public Row_GUI(int rowNum, int numColumns) {
+			super();
 			this.numColumns=numColumns;
-			this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-
+			GridLayout layout=new GridLayout(1, numColumns, 20, 0);
+			this.setLayout(layout);
 			JPanel rowIndexPanel = new JPanel();
 			JLabel rowLabel = new JLabel(rowNum + "");
 			rowLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -37,10 +38,10 @@ import javax.swing.SwingConstants;
 			rowTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			rowTotalPanel.add(rowTotalLabel);
 			this.add(rowTotalPanel);
+
 		}
 		
 		public void setTotalPanel(int value){
-			System.out.println("setTotalPanel in row");
 			rowTotalLabel.setText(""+value);
 		}
 
